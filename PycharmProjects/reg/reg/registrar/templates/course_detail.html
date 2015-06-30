@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <title>Course detail &mdash; {{ dept }} {{ number }}</title>
+    </head>
+    
+    <body>
+        <strong>Course:</strong> {{ dept }} {{ number }} <br />
+        <strong>Title:</strong> {{ title }} <br />
+        <strong>Instructor:</strong> <a href="{{ inst_detail_url }}">{{ instructor.fname }} {{ instructor.lname }}</a>
+        {% if instructor.office %}
+            ({{ instructor.office }})
+        {% endif %}
+    </body>
+</html>

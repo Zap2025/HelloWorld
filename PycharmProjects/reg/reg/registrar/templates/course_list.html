@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>Course list</title>
+    </head>
+    
+    <body>
+        <h2>Course list</h2>
+        <form action="{% url 'course_list' %}" method="get">
+            Search by title: <input type="text" name="search_string" /> <input type="submit" />
+        </form>
+        <hr />
+        
+        {% comment %}
+          <ol> - ordered list (numbered)
+          <ul> - unordered list (bullets)
+          Inside:
+            <li> - list item
+        {% endcomment %}
+        
+        {% if search %}
+            <em>Search results for "{{ search }}":</em>
+            <form action="{% url 'course_list' %}">
+                <input type="submit" value="Reset" />
+            </form>
+        {% endif %}
+        <ul>
+            {% comment %}
+              I want to have one <li>...</li> for every course, including a link
+              to the course detail for that course
+            {% endcomment %}
+            {% for course in courses %}
+                <li><a href="{% url 'course_detail' course_id=course.id %}">{{ course }}</a></li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>
+
+
+
+
+
+
+

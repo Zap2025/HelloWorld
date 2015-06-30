@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>Professor list</title>
+    </head>
+    
+    <body>
+        <h2>Professor list</h2>
+        <hr />
+        
+        {% comment %}
+          <ol> - ordered list (numbered)
+          <ul> - unordered list (bullets)
+          Inside:
+            <li> - list item
+        {% endcomment %}
+        
+        <form action="{% url 'professor_list' %}" method="get">
+            Search by name: <input type="text" name="search_string" /> <input type="submit" />
+        </form>
+        
+        <ul>
+            {% comment %}
+              I want to have one <li>...</li> for every course, including a link
+              to the course detail for that course
+            {% endcomment %}
+            {% for prof in profs %}
+                <li><a href="{% url 'professor_detail' professor_id=prof.id %}">{{ prof }}</a></li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>
+
+
+
+
+
+
+

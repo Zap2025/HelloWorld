@@ -1,0 +1,4 @@
+Department: {{ dept }}
+Number: {{ number }}
+Title: {{ title }}
+Instructor: {{ instructor.fname }} {{ instructor.lname }} ({{ instructor.office }})
